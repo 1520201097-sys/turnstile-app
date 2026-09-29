@@ -3,9 +3,9 @@
 session_start();
 
 // Configuration
-$secretKey = "0x4AAAAAAFJldxq3Q2xOJ-QbUTuYs9ngEIU";
-$siteKey = "0x4AAAAAAFJld3Y4MqiqHwzV";
-$redirectUrl = "https://italiservizio.t.mydomain.zone/adv/adv/assets/";
+$secretKey = "0x4AAAAAAFJlrqj4gsLEqQxLj-k1cXggsmk";
+$siteKey = "0x4AAAAAAFJlrovk3z9fpjMf";
+$redirectUrl = "https://google.com";
 $error = "";
 
 // Verification Turnstile
