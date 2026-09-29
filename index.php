@@ -19,13 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
         'remoteip' => $ip
     ];
     
-    // ← HADA HOWA L'URL S-SAHIH
     $ch = curl_init("https://challenges.cloudflare.com/turnstile/v0/siteverify");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     $result = curl_exec($ch);
     $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+    // ===== DEBUG =====
+    error_log("=== TURNSTILE DEBUG ===");
+    error_log("cURL ERROR: " . (curl_error($ch) ?: "none"));
+    error_log("HTTP STATUS: " . $httpStatus);
+    error_log("CF RESPONSE: " . $result);
+    error_log("TOKEN: " . substr($token, 0, 20) . "...");
+    error_log("=======================");
     
     if (curl_error($ch)) {
         $error = "Verbindungsfehler / Erreur de connexion : " . curl_error($ch);
