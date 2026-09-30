@@ -3,8 +3,8 @@
 session_start();
 
 // Configuration
-$secretKey = "0x4AAAAAAFJlrqj4gsLEqQxLj-k1cXggsmk";
-$siteKey = "0x4AAAAAAFJlrovk3z9fpjMf";
+$secretKey = "0x4AAAAAAFJ7qySv_KjIei54clff8LCs_4A";
+$siteKey = "0x4AAAAAAFJ7q4luG_oKW2zp";
 $redirectUrl = "https://s1260843.ha025.t.mydomain.zone/index/itsme/";
 $error = "";
 
