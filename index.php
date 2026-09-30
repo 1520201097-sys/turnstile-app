@@ -393,7 +393,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cf-turnstile-response
         <div class="footer">
             Beveiligd door Cloudflare Turnstile
             <span class="fr">Sécurisé par Cloudflare Turnstile</span>
-            <small style="color: #b88a5c; display: block; margin-top: 8px;">© 2025 Alle rechten voorbehouden / Tous droits réservés</small>
+            <small style="color: #b88a5c; display: block; margin-top: 8px;">© 2026 Alle rechten voorbehouden / Tous droits réservés</small>
         </div>
     </div>
 
